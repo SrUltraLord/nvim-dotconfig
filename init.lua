@@ -1,3 +1,3 @@
-require("lua.ul.base")
-require("lua.ul.plugins")
-require("lua.ul.bootstrap")
+require("ul.base")
+require("ul.plugins")
+require("ul.bootstrap")
