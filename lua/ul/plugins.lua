@@ -39,8 +39,13 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim"
 
   -- File editing
-  use { 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' }
-  use "numToStr/Comment.nvim"
+  use { 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' } -- Better tabs
+  use {
+      'numToStr/Comment.nvim',
+      config = function()
+          require('Comment').setup()
+      end
+  }
   use {
     'VonHeikemen/lsp-zero.nvim',
     requires = {
@@ -73,7 +78,10 @@ return packer.startup(function(use)
       require("barbecue").setup()
     end,
   }
-  -- Inline errors
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+  }  -- Inline errors
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
