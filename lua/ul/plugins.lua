@@ -12,7 +12,7 @@ vim.cmd([[
   augroup end
 ]])
 
-return require('packer').startup(function(use)
+return packer.startup(function(use)
   use "wbthomason/packer.nvim"
 
   -- Theme
@@ -20,20 +20,76 @@ return require('packer').startup(function(use)
   use "glepnir/dashboard-nvim"
 
   -- Status line
-  use "nvim-lualine/lualine.nvim"
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+  use "kyazdani42/nvim-web-devicons"
+
+  -- Floating terminal
+  use "voldikss/vim-floaterm"
+
+  -- Git
+  use {
+    'tanvirtin/vgit.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
+  }
+  use "nvim-lua/plenary.nvim"
 
   -- File editing
+  use { 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' }
   use "numToStr/Comment.nvim"
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    requires = {
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},
+      {'williamboman/mason.nvim'},
+      {'williamboman/mason-lspconfig.nvim'},
+
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},
+      {'hrsh7th/cmp-buffer'},
+      {'hrsh7th/cmp-path'},
+      {'saadparwaiz1/cmp_luasnip'},
+      {'hrsh7th/cmp-nvim-lsp'},
+      {'hrsh7th/cmp-nvim-lua'},
+
+      -- Snippets
+      {'L3MON4D3/LuaSnip'},
+      {'rafamadriz/friendly-snippets'},
+    }
+  }
+  use {
+    "utilyre/barbecue.nvim",
+    requires = {
+      "neovim/nvim-lspconfig",
+      "smiteshp/nvim-navic",
+      "kyazdani42/nvim-web-devicons", -- optional
+    },
+    config = function()
+      require("barbecue").setup()
+    end,
+  }
+  -- Inline errors
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {
+      }
+    end
+  }
 
   -- File Mgmt
   use "nvim-tree/nvim-tree.lua"
-  use "kyazdani42/nvim-web-devicons"
   use { "nvim-telescope/telescope.nvim",
     tag = "0.1.0",
     requires = { { "nvim-lua/plenary.nvim" } },
   }
   use "nvim-telescope/telescope-file-browser.nvim"
-
 
   -- File Decorations
   use "lukas-reineke/indent-blankline.nvim"
@@ -47,7 +103,6 @@ return require('packer').startup(function(use)
   use "ap/vim-css-color"
 
   if packer_bootstrap then
-    require('packer').sync()
+    packer.sync()
   end
 end)
-

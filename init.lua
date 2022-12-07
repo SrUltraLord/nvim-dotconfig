@@ -1,3 +1,6 @@
+require("ul.bootstrap")
 require("ul.base")
 require("ul.plugins")
-require("ul.bootstrap")
+require("ul.plugin_config")
+require("ul.maps")
+require("ul.theme")

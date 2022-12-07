@@ -154,6 +154,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\david\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-css-color",
     url = "https://github.com/ap/vim-css-color"
   },
+  ["vim-floaterm"] = {
+    loaded = true,
+    path = "C:\\Users\\david\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-floaterm",
+    url = "https://github.com/voldikss/vim-floaterm"
+  },
   ["vim-rainbow"] = {
     loaded = true,
     path = "C:\\Users\\david\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-rainbow",
