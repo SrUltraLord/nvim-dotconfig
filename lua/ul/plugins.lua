@@ -102,6 +102,9 @@ return packer.startup(function(use)
   use "vim-python/python-syntax"
   use "ap/vim-css-color"
 
+  -- Misc
+  use 'andweeb/presence.nvim'
+
   if packer_bootstrap then
     packer.sync()
   end
