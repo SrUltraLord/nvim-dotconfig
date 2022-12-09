@@ -2,15 +2,6 @@ local g = vim.g
 local o = vim.o
 local opt = vim.opt
 
--- cmd('syntax on')
--- vim.api.nvim_command('filetype plugin indent on')
-
--- o.termguicolors = true
--- o.background = 'dark'
-
--- Do not save when switching buffers
--- o.hidden = true
-
 -- Decrease update time
 o.timeoutlen = 500
 o.updatetime = 200
@@ -24,7 +15,9 @@ o.numberwidth = 2
 o.relativenumber = true
 o.signcolumn = "yes"
 o.cursorline = true
-
+opt.list = true
+opt.listchars:append "space:⋅"
+opt.listchars:append "eol:↴"
 
 -- Better editing experience
 o.expandtab = true
@@ -36,10 +29,9 @@ o.textwidth = 300
 o.tabstop = 4
 o.shiftwidth = 4
 o.softtabstop = -1 -- If negative, shiftwidth value is used
-o.list = true
-o.listchars = "trail:·,nbsp:◇,tab:→ ,extends:▸,precedes:◂"
--- o.listchars = 'eol:¬,space:·,lead: ,trail:·,nbsp:◇,tab:→-,extends:▸,precedes:◂,multispace:···⬝,leadmultispace:│   ,'
--- o.formatoptions = 'qrn1'
+opt.list = true
+opt.listchars:append "space:⋅"
+opt.listchars:append "eol:↴"
 
 -- Makes neovim and host OS clipboard play nicely with each other
 o.clipboard = "unnamedplus"
@@ -63,3 +55,8 @@ o.history = 50
 -- Better buffer splitting
 o.splitright = true
 o.splitbelow = true
+
+-- Used by vgit.nvim
+o.incsearch = false
+vim.wo.signcolumn = 'yes'
+
