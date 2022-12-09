@@ -26,8 +26,8 @@ o.cindent = true
 o.autoindent = true
 o.wrap = true
 o.textwidth = 300
-o.tabstop = 4
-o.shiftwidth = 4
+o.tabstop = 2
+o.shiftwidth = 2
 o.softtabstop = -1 -- If negative, shiftwidth value is used
 opt.list = true
 opt.listchars:append "space:⋅"
