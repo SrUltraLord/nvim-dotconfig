@@ -2,6 +2,9 @@ local g = vim.g
 local o = vim.o
 local opt = vim.opt
 
+-- Fonts
+opt.guifont = { "CaskaydiaCove NF", ":h12" }
+
 -- Decrease update time
 o.timeoutlen = 500
 o.updatetime = 200
