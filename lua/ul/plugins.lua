@@ -65,7 +65,7 @@ return packer.startup(function(use)
     config = function()
       require("sort").setup({ })
     end
-  }) 
+  })
   use {
     "SmiteshP/nvim-navic",
     requires = "neovim/nvim-lspconfig"
