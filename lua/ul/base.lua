@@ -3,7 +3,7 @@ local o = vim.o
 local opt = vim.opt
 
 -- Fonts
-opt.guifont = { "CaskaydiaCove NF", ":h12" }
+opt.guifont = { "CaskaydiaCove NF:h12" }
 
 -- Decrease update time
 o.timeoutlen = 500
@@ -20,7 +20,6 @@ o.signcolumn = "yes"
 o.cursorline = true
 opt.list = true
 opt.listchars:append "space:⋅"
-opt.listchars:append "eol:↴"
 
 -- Better editing experience
 o.expandtab = true
@@ -34,7 +33,6 @@ o.shiftwidth = 2
 o.softtabstop = -1 -- If negative, shiftwidth value is used
 opt.list = true
 opt.listchars:append "space:⋅"
-opt.listchars:append "eol:↴"
 
 -- Makes neovim and host OS clipboard play nicely with each other
 o.clipboard = "unnamedplus"
