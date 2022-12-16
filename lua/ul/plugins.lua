@@ -97,6 +97,8 @@ return packer.startup(function(use)
   use "vim-python/python-syntax"
   use "ap/vim-css-color"
 
+  use "posva/vim-vue"
+
   if packer_bootstrap then
     packer.sync()
   end
