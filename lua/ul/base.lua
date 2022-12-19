@@ -2,6 +2,8 @@ local g = vim.g
 local o = vim.o
 local opt = vim.opt
 
+g.mapleader = " "
+
 -- Fonts
 opt.guifont = { "CaskaydiaCove NF:h12" }
 
