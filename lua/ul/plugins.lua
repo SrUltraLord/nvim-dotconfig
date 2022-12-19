@@ -112,12 +112,6 @@ return packer.startup(function(use)
 
   -- Syntax Highlighting
   use "nvim-treesitter/nvim-treesitter"
-  use "PotatoesMaster/i3-vim-syntax"
-  use "kovetskiy/sxhkd-vim"
-  use "vim-python/python-syntax"
-  use "ap/vim-css-color"
-
-  use "posva/vim-vue"
 
   if packer_bootstrap then
     packer.sync()
