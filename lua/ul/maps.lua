@@ -6,7 +6,7 @@ local opts = { noremap = true, silent = true }
 
 -- Editing maps
 map("n", "<c-s>", "<CMD>Sort<CR>") -- Sorts
- map("n", "<c-x>", "<CMD>BufferClose<CR>") -- Close tabs
+map("n", "<c-x>", "<CMD>BufferClose<CR>") -- Close tabs
 
 -- Lazygit in floatterm
 map("n", "<c-g>", "<CMD>FloatermNew lazygit<CR>")
