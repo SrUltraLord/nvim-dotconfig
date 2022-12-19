@@ -1,3 +1,5 @@
+local m = require"ul.maps"
+
 local g = vim.g
 local opt = vim.opt
 
@@ -10,6 +12,9 @@ opt.termguicolors = true
 
 -- empty setup using defaults
 require("nvim-tree").setup()
+
+
+m.map("n", "<c-b>", "<CMD>NvimTreeToggle<CR>")
 
 -- OR setup with some options
 require("nvim-tree").setup({
