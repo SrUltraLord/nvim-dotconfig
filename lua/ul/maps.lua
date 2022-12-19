@@ -2,8 +2,6 @@ local function map(m, k, v)
   vim.keymap.set(m, k, v, { silent = true })
 end
 
-local opts = { noremap = true, silent = true }
-
 -- Editing maps
 map("n", "<c-s>", "<CMD>Sort<CR>") -- Sorts
 map("n", "<c-x>", "<CMD>BufferClose<CR>") -- Close tabs
@@ -20,6 +18,6 @@ map("n", "<c-p>", "<CMD>Telescope find_files<CR>")
 
 -- Bar Bar
 -- Move to previous/next
-map('n', 'gT', '<Cmd>BufferPrevious<CR>', opts)
-map('n', 'gt', '<Cmd>BufferNext<CR>', opts)
+map('n', 'gT', '<Cmd>BufferPrevious<CR>')
+map('n', 'gt', '<Cmd>BufferNext<CR>')
 
