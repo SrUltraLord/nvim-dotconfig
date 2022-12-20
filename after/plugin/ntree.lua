@@ -13,7 +13,6 @@ opt.termguicolors = true
 -- empty setup using defaults
 require("nvim-tree").setup()
 
-
 m.map("n", "<c-b>", "<CMD>NvimTreeToggle<CR>")
 
 -- OR setup with some options
