@@ -3,6 +3,10 @@ local m = require"ul.maps"
 m.map('n', 'gT', '<Cmd>BufferPrevious<CR>')
 m.map('n', 'gt', '<Cmd>BufferNext<CR>')
 
+m.map("n", "<c-x>", "<CMD>BufferClose<CR>") -- Close tabs
+m.map('n', '<leader>ctbc', '<Cmd>BufferCloseAllButCurrent<CR>')
+m.map('n', '<leader>ctr', '<Cmd>BufferCloseBuffersRight<CR>')
+
 m.map('n', '<leader>1', '<Cmd>BufferGoto 1<CR>')
 m.map('n', '<leader>2', '<Cmd>BufferGoto 2<CR>')
 m.map('n', '<leader>3', '<Cmd>BufferGoto 3<CR>')
