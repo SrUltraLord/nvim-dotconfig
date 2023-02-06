@@ -1,4 +1,4 @@
-local m = require"ul.maps"
+local m = require "ul.maps"
 
 local g = vim.g
 local opt = vim.opt
@@ -14,6 +14,7 @@ opt.termguicolors = true
 require("nvim-tree").setup()
 
 m.map("n", "<c-b>", "<CMD>NvimTreeToggle<CR>")
+m.map("n", "<c-B>", "<CMD>NvimTreeFocus<CR>")
 
 -- OR setup with some options
 require("nvim-tree").setup({

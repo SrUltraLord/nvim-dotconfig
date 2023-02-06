@@ -63,3 +63,6 @@ o.splitbelow = true
 o.incsearch = false
 vim.wo.signcolumn = 'yes'
 
+
+-- Format on Save
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]

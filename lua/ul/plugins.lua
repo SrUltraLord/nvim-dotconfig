@@ -17,7 +17,14 @@ return packer.startup(function(use)
 
   -- Theme
   use { "catppuccin/nvim", as = "catppuccin" }
-  use "glepnir/dashboard-nvim"
+  use {
+    "glepnir/dashboard-nvim",
+    event = "VimEnter",
+    requires = {
+      { 'nvim-tree/nvim-web-devicons' }
+    },
+
+  }
 
   -- Status line
   use {
@@ -40,25 +47,25 @@ return packer.startup(function(use)
 
   -- File editing
   use {
-	  'VonHeikemen/lsp-zero.nvim',
-	  requires = {
-		  -- LSP Support
-		  {'neovim/nvim-lspconfig'},
-		  {'williamboman/mason.nvim'},
-		  {'williamboman/mason-lspconfig.nvim'},
+    'VonHeikemen/lsp-zero.nvim',
+    requires = {
+      -- LSP Support
+      { 'neovim/nvim-lspconfig' },
+      { 'williamboman/mason.nvim' },
+      { 'williamboman/mason-lspconfig.nvim' },
 
-		  -- Autocompletion
-		  {'hrsh7th/nvim-cmp'},
-		  {'hrsh7th/cmp-buffer'},
-		  {'hrsh7th/cmp-path'},
-		  {'saadparwaiz1/cmp_luasnip'},
-		  {'hrsh7th/cmp-nvim-lsp'},
-		  {'hrsh7th/cmp-nvim-lua'},
+      -- Autocompletion
+      { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'saadparwaiz1/cmp_luasnip' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-nvim-lua' },
 
-		  -- Snippets
-		  {'L3MON4D3/LuaSnip'},
-		  {'rafamadriz/friendly-snippets'},
-	  }
+      -- Snippets
+      { 'L3MON4D3/LuaSnip' },
+      { 'rafamadriz/friendly-snippets' },
+    }
   }
   use { 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' } -- Better tabs
   use {
@@ -78,25 +85,19 @@ return packer.startup(function(use)
       require("barbecue").setup()
     end,
   }
-   use({
-    'sQVe/sort.nvim',
-
-    -- Optional setup for overriding defaults.
-    config = function()
-      require("sort").setup({ })
-    end
-  })
-  use {
-    "SmiteshP/nvim-navic",
-    requires = "neovim/nvim-lspconfig"
-  }  -- Inline errors
+  use { 'sQVe/sort.nvim' }
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
-      require("trouble").setup { }
+      require("trouble").setup {}
     end
   }
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+  } -- Inline errors
+  use { 'jiangmiao/auto-pairs' }
 
   -- File Mgmt
   use "nvim-tree/nvim-tree.lua"
@@ -112,6 +113,9 @@ return packer.startup(function(use)
 
   -- Syntax Highlighting
   use "nvim-treesitter/nvim-treesitter"
+
+  -- Misc.
+  use { 'Stoozy/vimcord' }
 
   if packer_bootstrap then
     packer.sync()
