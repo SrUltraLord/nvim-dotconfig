@@ -7,7 +7,18 @@ map("n", "<c-r>", "<CMD>e $MYVIMRC<CR>") -- Sorts
 
 -- Editing maps
 map("n", "<c-s>", "<CMD>Sort<CR>") -- Sorts
-map("n", "<c-\\>", "<CMD>vs<CR>")  -- Splits Vertical
+map("n", "<c-\\>", "<CMD>vs<CR>") -- Splits Vertical
+
+-- Splits Mgmt
+map("n", "<c-h>", "<c-w>h");
+map("n", "<c-j>", "<c-w>j");
+map("n", "<c-k>", "<c-w>k");
+map("n", "<c-l>", "<c-w>l");
+
+map("n", "<c-Left>", "<CMD>:vertical resize +3<CR>");
+map("n", "<c-Right>", "<CMD>:vertical resize -3<CR>");
+map("n", "<c-Up>", "<CMD>:resize +3<CR>");
+map("n", "<c-Down>", "<CMD>:resize -3<CR>");
 
 -- Lazygit in floatterm
 map("n", "<c-`>", "<CMD>FloatermNew<CR>")
