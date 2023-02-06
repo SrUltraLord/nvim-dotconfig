@@ -10,11 +10,8 @@ g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 opt.termguicolors = true
 
--- empty setup using defaults
-require("nvim-tree").setup()
-
 m.map("n", "<c-b>", "<CMD>NvimTreeToggle<CR>")
-m.map("n", "<c-B>", "<CMD>NvimTreeFocus<CR>")
+m.map("n", "<c-E>", "<CMD>NvimTreeFocus<CR>")
 
 -- OR setup with some options
 require("nvim-tree").setup({
