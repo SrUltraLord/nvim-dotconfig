@@ -67,6 +67,7 @@ return packer.startup(function(use)
       { 'rafamadriz/friendly-snippets' },
     }
   }
+  use { 'simrat39/rust-tools.nvim' } -- Rust LSP
   use { 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' } -- Better tabs
   use {
     'numToStr/Comment.nvim',
@@ -93,10 +94,7 @@ return packer.startup(function(use)
       require("trouble").setup {}
     end
   }
-  use {
-    "SmiteshP/nvim-navic",
-    requires = "neovim/nvim-lspconfig"
-  } -- Inline errors
+  use { 'folke/lsp-colors.nvim' }
   use { 'jiangmiao/auto-pairs' }
 
   -- File Mgmt
@@ -113,9 +111,6 @@ return packer.startup(function(use)
 
   -- Syntax Highlighting
   use "nvim-treesitter/nvim-treesitter"
-
-  -- Misc.
-  use { 'Stoozy/vimcord' }
 
   if packer_bootstrap then
     packer.sync()
