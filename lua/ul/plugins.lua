@@ -26,6 +26,17 @@ return packer.startup(function(use)
 
   }
 
+  -- Sessions
+  use {
+    'rmagatti/auto-session',
+    config = function()
+      require("auto-session").setup {
+        log_level = "error",
+        auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+      }
+    end
+  }
+
   -- Status line
   use {
     'nvim-lualine/lualine.nvim',
