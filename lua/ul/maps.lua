@@ -6,8 +6,9 @@ end
 map("n", "<c-r>", "<CMD>e $MYVIMRC<CR>") -- Sorts
 
 -- Editing maps
-map("n", "<c-s>", "<CMD>Sort<CR>") -- Sorts
+map("n", "<c-s>", "<CMD>w<CR>")
 map("n", "<c-\\>", "<CMD>vs<CR>") -- Splits Vertical
+map("n", "<leader>s", "<CMD>Sort<CR>") -- Sorts
 
 -- Splits Mgmt
 map("n", "<c-h>", "<c-w>h");
