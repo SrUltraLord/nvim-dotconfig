@@ -3,7 +3,7 @@ local function map(m, k, v)
 end
 
 -- Reload config
-map("n", "<c-r>", "<CMD>e $MYVIMRC<CR>") -- Sorts
+map("n", "<leader>r", "<CMD>e $MYVIMRC<CR>") -- Sorts
 
 -- Editing maps
 map("n", "<c-s>", "<CMD>w<CR>")
@@ -26,5 +26,5 @@ map("n", "<c-`>", "<CMD>FloatermNew<CR>")
 map("n", "<c-g>", "<CMD>FloatermNew lazygit<CR>")
 
 return {
-  map = map
+    map = map
 }
