@@ -20,8 +20,6 @@ o.numberwidth = 2
 o.relativenumber = true
 o.signcolumn = "yes"
 o.cursorline = true
-opt.list = true
-opt.listchars:append "space:⋅"
 
 -- Better editing experience
 o.expandtab = true
