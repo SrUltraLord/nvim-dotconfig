@@ -61,6 +61,33 @@ o.splitbelow = true
 o.incsearch = false
 vim.wo.signcolumn = 'yes'
 
-
+-- TODO: handle if file is from TS project
 -- Format on Save
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
+-- vim.cmd [[autocmd BufWritePre * execute ':e!']]
+
+vim.api.nvim_command([[
+  function! HandlePreFileFormat()
+    if &ft == 'typescript' || &ft == 'vue' || &ft == 'json'
+      return
+    endif
+
+    lua vim.lsp.buf.format()
+  endfunction
+
+
+  function! HandlePostFileFormat()
+    if &ft == 'typescript' || &ft == 'vue' || &ft == 'json'
+      execute '! pnpx prettier --write ' . expand("%:p") . ' &>/dev/null'
+    endif
+  endfunction
+]])
+
+vim.cmd [[autocmd BufWritePre * call HandlePreFileFormat()]]
+vim.cmd [[autocmd BufWritePost * call HandlePostFileFormat()]]
+
+
+-- vim.cmd [[
+--   autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
+-- ]]
+
+-- vim.cmd [[autocmd BufWritePre * execute '! pnpx prettier --write ' . expand("%:p") . ' &>/dev/null']]
