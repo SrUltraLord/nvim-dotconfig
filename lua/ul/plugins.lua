@@ -13,117 +13,154 @@ vim.cmd([[
 ]])
 
 return packer.startup(function(use)
-  use "wbthomason/packer.nvim"
+      use "wbthomason/packer.nvim"
 
-  -- Theme
-  use { "catppuccin/nvim", as = "catppuccin" }
-  use {
-    "glepnir/dashboard-nvim",
-    event = "VimEnter",
-    requires = {
-      { 'nvim-tree/nvim-web-devicons' }
-    },
+      -- Theme
+      use { "catppuccin/nvim", as = "catppuccin" }
+      use {
+          "glepnir/dashboard-nvim",
+          event = "VimEnter",
+          config = function()
+            require('dashboard').setup {
+                theme = 'hyper',
+                config = {
+                    week_header = {
+                        enable = true,
+                    },
+                    shortcut = {
+                        { desc = ' Update', group = '@property', action = 'Lazy update', key = 'u' },
+                        {
+                            desc = ' Files',
+                            group = 'Label',
+                            action = 'Telescope find_files',
+                            key = 'f',
+                        },
+                        {
+                            desc = ' Apps',
+                            group = 'DiagnosticHint',
+                            action = 'Telescope app',
+                            key = 'a',
+                        },
+                        {
+                            desc = ' dotfiles',
+                            group = 'Number',
+                            action = 'Telescope dotfiles',
+                            key = 'd',
+                        },
+                    },
+                },
+                -- config
+            }
+          end,
+          requires = {
+              { 'nvim-tree/nvim-web-devicons' }
+          },
 
-  }
-
-  -- Sessions
-  use {
-    'rmagatti/auto-session',
-    config = function()
-      require("auto-session").setup {
-        log_level = "error",
-        auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
       }
-    end
-  }
 
-  -- Status line
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
-  use "kyazdani42/nvim-web-devicons"
+      -- Sessions
+      use {
+          'rmagatti/auto-session',
+          config = function()
+            require("auto-session").setup {
+                log_level = "error",
+                auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+            }
+          end
+      }
 
-  -- Floating terminal
-  use "voldikss/vim-floaterm"
+      -- Status line
+      use {
+          'nvim-lualine/lualine.nvim',
+          requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+      }
+      use "kyazdani42/nvim-web-devicons"
 
-  -- Git
-  use {
-    'tanvirtin/vgit.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim'
-    }
-  }
-  use "nvim-lua/plenary.nvim"
+      -- Floating terminal
+      use "voldikss/vim-floaterm"
 
-  -- File editing
-  use {
-    'VonHeikemen/lsp-zero.nvim',
-    requires = {
-      -- LSP Support
-      { 'neovim/nvim-lspconfig' },
-      { 'williamboman/mason.nvim' },
-      { 'williamboman/mason-lspconfig.nvim' },
+      -- Git
+      use {
+          'tanvirtin/vgit.nvim',
+          requires = {
+              'nvim-lua/plenary.nvim'
+          }
+      }
+      use "nvim-lua/plenary.nvim"
 
-      -- Autocompletion
-      { 'hrsh7th/nvim-cmp' },
-      { 'hrsh7th/cmp-buffer' },
-      { 'hrsh7th/cmp-path' },
-      { 'saadparwaiz1/cmp_luasnip' },
-      { 'hrsh7th/cmp-nvim-lsp' },
-      { 'hrsh7th/cmp-nvim-lua' },
+      -- File editing
+      use {
+          'VonHeikemen/lsp-zero.nvim',
+          requires = {
+              -- LSP Support
+              { 'neovim/nvim-lspconfig' },
+              { 'williamboman/mason.nvim' },
+              { 'williamboman/mason-lspconfig.nvim' },
 
-      -- Snippets
-      { 'L3MON4D3/LuaSnip' },
-      { 'rafamadriz/friendly-snippets' },
-    }
-  }
-  use { 'simrat39/rust-tools.nvim' } -- Rust LSP
-  use { 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' } -- Better tabs
-  use {
-    'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup()
-    end
-  }
-  use {
-    "utilyre/barbecue.nvim",
-    requires = {
-      "neovim/nvim-lspconfig",
-      "smiteshp/nvim-navic",
-      "kyazdani42/nvim-web-devicons", -- optional
-    },
-    config = function()
-      require("barbecue").setup()
-    end,
-  }
-  use { 'sQVe/sort.nvim' }
-  use {
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("trouble").setup {}
-    end
-  }
-  use { 'folke/lsp-colors.nvim' }
-  use { 'jiangmiao/auto-pairs' }
+              -- Autocompletion
+              { 'hrsh7th/nvim-cmp' },
+              { 'hrsh7th/cmp-buffer' },
+              { 'hrsh7th/cmp-path' },
+              { 'saadparwaiz1/cmp_luasnip' },
+              { 'hrsh7th/cmp-nvim-lsp' },
+              { 'hrsh7th/cmp-nvim-lua' },
 
-  -- File Mgmt
-  use "nvim-tree/nvim-tree.lua"
-  use { "nvim-telescope/telescope.nvim",
-    tag = "0.1.0",
-    requires = { { "nvim-lua/plenary.nvim" } },
-  }
-  use "nvim-telescope/telescope-file-browser.nvim"
+              -- Snippets
+              { 'L3MON4D3/LuaSnip' },
+              { 'rafamadriz/friendly-snippets' },
+          }
+      }
+      use { 'simrat39/rust-tools.nvim' } -- Rust LSP
 
-  -- File Decorations
-  use "lukas-reineke/indent-blankline.nvim"
-  use "frazrepo/vim-rainbow"
+      use { 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' } -- Better tabs
+      use {
+          'numToStr/Comment.nvim',
+          config = function()
+            require('Comment').setup()
+          end
+      }
+      use {
+          "utilyre/barbecue.nvim",
+          requires = {
+              "neovim/nvim-lspconfig",
+              "smiteshp/nvim-navic",
+              "kyazdani42/nvim-web-devicons", -- optional
+          },
+          config = function()
+            require("barbecue").setup()
+          end,
+      }
+      use { 'sQVe/sort.nvim' }
+      use {
+          "folke/trouble.nvim",
+          requires = "kyazdani42/nvim-web-devicons",
+          config = function()
+            require("trouble").setup {
+                auto_preview = true,
+                use_diagnostic_signs = true
+            }
+          end
+      }
+      use { 'jiangmiao/auto-pairs' }
 
-  -- Syntax Highlighting
-  use "nvim-treesitter/nvim-treesitter"
+      -- File Mgmt
+      use "nvim-tree/nvim-tree.lua"
+      use { "nvim-telescope/telescope.nvim",
+          tag = "0.1.0",
+          requires = { { "nvim-lua/plenary.nvim" } },
+      }
+      use "nvim-telescope/telescope-file-browser.nvim"
 
-  if packer_bootstrap then
-    packer.sync()
-  end
-end)
+      -- File Decorations
+      use "lukas-reineke/indent-blankline.nvim"
+
+      -- Syntax Highlighting
+      use "nvim-treesitter/nvim-treesitter"
+
+      -- Misc.
+      use 'andweeb/presence.nvim'
+
+      if packer_bootstrap then
+        packer.sync()
+      end
+    end)
