@@ -61,10 +61,8 @@ o.splitbelow = true
 o.incsearch = false
 vim.wo.signcolumn = 'yes'
 
--- TODO: handle if file is from TS project
--- Format on Save
--- vim.cmd [[autocmd BufWritePre * execute ':e!']]
-
+-- It's done with vim api instead of Lua because it
+-- just works better.
 vim.api.nvim_command([[
   function! HandlePreFileFormat()
     if &ft == 'typescript' || &ft == 'vue' || &ft == 'json'
@@ -84,10 +82,3 @@ vim.api.nvim_command([[
 
 vim.cmd [[autocmd BufWritePre * call HandlePreFileFormat()]]
 vim.cmd [[autocmd BufWritePost * call HandlePostFileFormat()]]
-
-
--- vim.cmd [[
---   autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
--- ]]
-
--- vim.cmd [[autocmd BufWritePre * execute '! pnpx prettier --write ' . expand("%:p") . ' &>/dev/null']]
