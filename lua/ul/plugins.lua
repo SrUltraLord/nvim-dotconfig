@@ -59,15 +59,14 @@ return packer.startup(function(use)
       }
 
       -- Sessions
-      use {
-          'rmagatti/auto-session',
+      use({
+          "folke/persistence.nvim",
+          event = "BufReadPre", -- this will only start session saving when an actual file was opened
+          module = "persistence",
           config = function()
-            require("auto-session").setup {
-                log_level = "error",
-                auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-            }
-          end
-      }
+            require("persistence").setup()
+          end,
+      })
 
       -- Status line
       use {
@@ -80,15 +79,13 @@ return packer.startup(function(use)
       use "voldikss/vim-floaterm"
 
       -- Git
-      use {
-          'tanvirtin/vgit.nvim',
-          requires = {
-              'nvim-lua/plenary.nvim'
-          }
-      }
+      use { 'tanvirtin/vgit.nvim', requires = 'nvim-lua/plenary.nvim' }
+      use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
       use "nvim-lua/plenary.nvim"
 
       -- File editing
+      use { "gbprod/yanky.nvim" }
+      use { "petertriho/nvim-scrollbar" }
       use {
           'VonHeikemen/lsp-zero.nvim',
           requires = {
@@ -112,7 +109,8 @@ return packer.startup(function(use)
       }
       use { 'simrat39/rust-tools.nvim' } -- Rust LSP
 
-      use { 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' } -- Better tabs
+      use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
+
       use {
           'numToStr/Comment.nvim',
           config = function()
@@ -142,6 +140,18 @@ return packer.startup(function(use)
           end
       }
       use { 'jiangmiao/auto-pairs' }
+
+      use {
+          "folke/todo-comments.nvim",
+          requires = "nvim-lua/plenary.nvim",
+          config = function()
+            require("todo-comments").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+          end
+      }
 
       -- File Mgmt
       use "nvim-tree/nvim-tree.lua"
