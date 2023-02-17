@@ -1,5 +1,7 @@
 local m = require "ul.maps"
 
+m.map("n", "<c-x>", "<CMD>BufferLinePickClose<CR>")
+m.map("n", "<A-g>", "<CMD>BufferLinePick<CR>")
 m.map("n", "gt", "<CMD>BufferLineCycleNext<CR>")
 m.map("n", "gT", "<CMD>BufferLineCyclePrev<CR>")
 m.map("n", "<A-k>", "<CMD>BufferLineCycleNext<CR>")
