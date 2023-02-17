@@ -136,6 +136,11 @@ return packer.startup(function(use)
   -- Syntax Highlighting
   use "nvim-treesitter/nvim-treesitter"
 
+  -- Terminal
+  use { "akinsho/toggleterm.nvim", tag = '*', config = function()
+    require("toggleterm").setup()
+  end }
+
   -- Misc.
   use 'andweeb/presence.nvim'
 
