@@ -23,7 +23,7 @@ map("n", "<c-Down>", "<CMD>:resize -3<CR>");
 
 -- Lazygit in floatterm
 map("n", "<c-`>", "<CMD>FloatermNew<CR>")
-map("n", "<c-g>", "<CMD>FloatermNew lazygit<CR>")
+map("n", "<leader>g", "<CMD>FloatermNew lazygit<CR>")
 
 return {
   map = map
