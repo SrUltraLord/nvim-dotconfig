@@ -30,7 +30,7 @@ return packer.startup(function(use)
   -- Sessions
   use({
     "folke/persistence.nvim",
-    event = "BufReadPre", -- this will only start session saving when an actual file was opened
+    event = "BufReadPre",
     module = "persistence",
     config = function()
       require("persistence").setup()
@@ -53,6 +53,7 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim"
 
   -- File editing
+  use { "ggandor/leap.nvim" }
   use { "gbprod/yanky.nvim" }
   use { "petertriho/nvim-scrollbar" }
   use {
@@ -76,7 +77,7 @@ return packer.startup(function(use)
       { 'rafamadriz/friendly-snippets' },
     }
   }
-  use { 'simrat39/rust-tools.nvim' } -- Rust LSP
+  use { 'simrat39/rust-tools.nvim' }
 
   use {
     'akinsho/bufferline.nvim',
