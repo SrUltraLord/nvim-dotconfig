@@ -28,14 +28,14 @@ return packer.startup(function(use)
   }
 
   -- Sessions
-  use({
+  use {
     "folke/persistence.nvim",
     event = "BufReadPre",
     module = "persistence",
     config = function()
       require("persistence").setup()
     end,
-  })
+  }
 
   -- Status line
   use {
@@ -54,6 +54,7 @@ return packer.startup(function(use)
 
   -- File editing
   use { "ggandor/leap.nvim" }
+  use { "mg979/vim-visual-multi" }
   use { "gbprod/yanky.nvim" }
   use { "petertriho/nvim-scrollbar" }
   use {
