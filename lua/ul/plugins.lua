@@ -124,6 +124,9 @@ return packer.startup(function(use)
     end
   }
 
+  -- Debugging
+  use "mfussenegger/nvim-dap"
+
   -- File Mgmt
   use "nvim-tree/nvim-tree.lua"
   use { "nvim-telescope/telescope.nvim",
@@ -131,6 +134,7 @@ return packer.startup(function(use)
     requires = { { "nvim-lua/plenary.nvim" } },
   }
   use "nvim-telescope/telescope-file-browser.nvim"
+  use "sbdchd/neoformat"
 
   -- File Decorations
   use "lukas-reineke/indent-blankline.nvim"
