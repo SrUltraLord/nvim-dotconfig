@@ -10,3 +10,5 @@ require('telescope').setup {
     file_ignore_patterns = { "node_modules", ".git" },
   }
 }
+
+require('telescope').load_extension("yank_history")
