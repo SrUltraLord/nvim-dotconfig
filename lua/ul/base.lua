@@ -65,3 +65,4 @@ vim.wo.signcolumn = 'yes'
 -- FILE FORMATTING
 g.neoformat_try_node_exe = 1
 vim.cmd [[autocmd BufWritePre * Neoformat]]
+vim.cmd [[autocmd BufWritePre *.lua lua vim.lsp.buf.format()]]
