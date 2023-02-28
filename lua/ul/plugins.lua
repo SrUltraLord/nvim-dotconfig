@@ -124,8 +124,10 @@ return packer.startup(function(use)
     end
   }
 
-  -- Debugging
+  -- Debugging (WIP)
+  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
   use "mfussenegger/nvim-dap"
+  use "marus/cortex-debug"
 
   -- File Mgmt
   use "nvim-tree/nvim-tree.lua"
@@ -150,7 +152,7 @@ return packer.startup(function(use)
   -- Misc.
   use 'andweeb/presence.nvim'
 
-  if packer_bootstrap then
+  if PACKER_BOOTSTRAP then
     packer.sync()
   end
 end)
