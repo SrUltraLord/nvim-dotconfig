@@ -60,6 +60,7 @@ o.splitbelow = true
 -- Used by vgit.nvim
 o.incsearch = false
 vim.wo.signcolumn = 'yes'
+opt.signcolumn = 'yes'
 
 
 -- FILE FORMATTING
