@@ -1,8 +1,7 @@
-local lsp = require('lsp-zero')
+local lspconfig = require('lspconfig')
+local lspzero = require('lsp-zero')
 
-lsp.preset('recommended')
-
-lsp.ensure_installed({
+lspzero.ensure_installed({
   'html',
   'eslint',
   'tsserver',
@@ -10,9 +9,41 @@ lsp.ensure_installed({
   'rust_analyzer'
 })
 
-local rust_lsp = lsp.build_options('rust_analyzer', {})
+lspzero.preset({
+  suggest_lsp_servers = true,
+  setup_servers_on_start = true,
+  configure_diagnostics = true,
+  cmp_capabilities = true,
+  manage_nvim_cmp = true,
+  call_servers = 'local',
+  set_lsp_keymaps = { preserve_mappings = true, omit = {} },
+  sign_icons = {
+    error = "",
+    warn = "",
+    hint = "",
+    info = "",
+  }
+})
 
-lsp.nvim_workspace()
-lsp.setup()
+-- RUST Config
+local rust_lsp = lspzero.build_options('rust_analyzer', {
+  single_file_support = false,
+  on_attach = function(client, bufnr)
+    print('hello rust-tools')
+  end
+})
+
+lspzero.nvim_workspace()
+lspzero.setup()
 
 require('rust-tools').setup({ server = rust_lsp })
+
+-- VUE config
+-- lspconfig.vuels.setup({
+--   cmd = { "vue-language-server", "--stdio" },
+--   filetypes = { "vue", "typescript" },
+--   on_init = function(client, _)
+--     -- Enable take over mode for the Vue language server
+--     lspzero.enable_takeover_mode(client)
+--   end,
+-- })
