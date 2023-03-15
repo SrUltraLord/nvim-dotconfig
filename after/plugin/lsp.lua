@@ -37,13 +37,3 @@ lspzero.nvim_workspace()
 lspzero.setup()
 
 require('rust-tools').setup({ server = rust_lsp })
-
--- VUE config
--- lspconfig.vuels.setup({
---   cmd = { "vue-language-server", "--stdio" },
---   filetypes = { "vue", "typescript" },
---   on_init = function(client, _)
---     -- Enable take over mode for the Vue language server
---     lspzero.enable_takeover_mode(client)
---   end,
--- })
